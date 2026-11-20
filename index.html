@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task & Assignment Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">STUDENT WORKSPACE</p>
+      <h1>Task Manager</h1>
+    </div>
+    <span class="date" id="today"></span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <h2>Stay organised. Stay on track.</h2>
+        <p>Manage your assignments, deadlines and daily study tasks in one place.</p>
+      </div>
+      <div class="welcome-icon">✓</div>
+    </section>
+
+    <section class="stats" aria-label="Task summary">
+      <article class="stat-card"><span>Total tasks</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>Pending</span><strong id="pendingCount">0</strong></article>
+      <article class="stat-card"><span>Completed</span><strong id="completedCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2 id="formHeading">Add a new task</h2><p>Enter the details below.</p></div>
+      </div>
+      <form id="taskForm">
+        <input type="hidden" id="taskId">
+        <div class="form-grid">
+          <label>Task title<input id="title" type="text" placeholder="e.g. Complete HTML assignment" required maxlength="80"></label>
+          <label>Subject
+            <select id="subject" required>
+              <option value="">Select subject</option>
+              <option>Front End Engineering</option>
+              <option>Artificial Intelligence</option>
+              <option>Computer Networks</option>
+              <option>Compiler Design</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Due date<input id="dueDate" type="date" required></label>
+          <label>Priority
+            <select id="priority">
+              <option>Low</option><option selected>Medium</option><option>High</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="submitButton">Add Task</button>
+          <button class="secondary hidden" type="button" id="cancelEdit">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <div><h2>Your tasks</h2><p id="taskHint">All your study tasks in one list.</p></div>
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks">
+          <select id="filterStatus" aria-label="Filter tasks">
+            <option value="all">All tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyState" class="empty">No tasks yet. Add your first task above.</p>
+    </section>
+  </main>
+  <footer>Student Task & Assignment Manager · Built with HTML, CSS and JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>
